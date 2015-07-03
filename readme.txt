@@ -13,4 +13,5 @@ To start for wordpress:
 	2. Add your email in array $_report_email = array( 'yours@email1', 'yours@email2' )	
 	3. If you plan to re-start the system from the beginning, then you need constant DELETE_LOG_AFTER_COMPLETE set to true, but log file will be deleted
 	4. Specify access to a database file ./class/Db.php ($dbserver = 'localhost'; $dbuser = 'user'; $dbpassword = 'password'; $dbname = 'db_name';) to work with articles;
-	5. Recommend run this program through ssh because the data in the browser script can take a long time. But if you believe that the site is not a lot of material, or a little broken links, and then you can run through a browser	www.yourdomain.com/fix-internal-links.php
+	5. execute a query to create a table with the results already obtained from the file links_query_cache
+	6. Recommend run this program through ssh because the data in the browser script can take a long time. But if you believe that the site is not a lot of material, or a little broken links, and then you can run through a browser	www.yourdomain.com/fix-internal-links.php
