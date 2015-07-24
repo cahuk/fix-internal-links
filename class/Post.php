@@ -40,7 +40,7 @@ class Post
      */
     function getMinId()
     {
-        $post_id = (int) $this->_db->fetchOne( " SELECT MIN( " . self::POST_ID_FIELD_NAME . " ) FROM $this->_tableName WHERE post_type='post' " );
+        $post_id = (int) $this->_db->fetchOne( " SELECT MIN( " . self::POST_ID_FIELD_NAME . " ) FROM $this->_tableName WHERE post_type='post' OR post_type='revision' " );
         return  $post_id;
     }
 
@@ -51,7 +51,7 @@ class Post
      */
     function getMaxId()
     {
-        $post_id = (int) $this->_db->fetchOne( " SELECT MAX( " . self::POST_ID_FIELD_NAME . " ) FROM $this->_tableName WHERE post_type='post' " );
+        $post_id = (int) $this->_db->fetchOne( " SELECT MAX( " . self::POST_ID_FIELD_NAME . " ) FROM $this->_tableName WHERE post_type='post' OR post_type='revision' " );
         return  $post_id;
     }
 
@@ -63,7 +63,7 @@ class Post
     function getPostById( $post_id )
     {
        $post_data = $this->_db->fetchRow( " SELECT " . implode( ',' , $this->_selectFields ) . "
-       FROM $this->_tableName WHERE " . self::POST_ID_FIELD_NAME . "= $post_id AND post_type='post'" );
+       FROM $this->_tableName WHERE " . self::POST_ID_FIELD_NAME . "= $post_id AND post_type='post' OR post_type='revision' " );
        return $post_data;
     }
 
